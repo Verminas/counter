@@ -6,16 +6,16 @@ type InputFieldPropsType = {
   title: string
   value: number
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  // error?: boolean
+   error?: boolean
 }
 
-export const InputField = ({title, value, onChange}: InputFieldPropsType) => {
+export const InputField = ({title, value, onChange, error}: InputFieldPropsType) => {
   return (
     <Wrapper>
       <StyledLabel>{title}<StyledInput type={'number'}
                                        value={value}
                                        onChange={onChange}
-                                       className={value < 0 ? 'error' : ''}
+                                       className={value < 0 || error ? 'error' : ''}
       /></StyledLabel>
     </Wrapper>
   );

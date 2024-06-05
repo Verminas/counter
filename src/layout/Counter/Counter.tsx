@@ -3,12 +3,12 @@ import {Container} from "../../components/Container";
 import {FlexWrapper} from "../../components/FlexWrapper";
 import styled from "styled-components";
 import {theme} from "../../styles/theme";
-import {FieldEnter} from "../../components/FieldEnter/FieldEnter";
-import {FieldOutput} from "../../components/FieldOutput/FieldOutput";
-import {ErrorMessage} from "../../App";
+import {EntryField} from "./EntryField/EntryField";
+import {OutputField} from "./OutputField/OutputField";
+import {ErrorMessage, WarningMessage} from "../../App";
 
 type CounterPropsType = {
-  counterValue: number
+  counterValue: number | WarningMessage
   maxValue: number
   minValue: number
   changeMinValue: (value: string) => void
@@ -17,6 +17,7 @@ type CounterPropsType = {
   resetCounterValue: () => void
   setCounterRange: () => void
   errorCounterValue: null | ErrorMessage
+  counterIsMax: boolean
 }
 
 export const Counter = ({
@@ -28,22 +29,25 @@ export const Counter = ({
                           incrementCounterValue,
                           resetCounterValue,
                           setCounterRange,
-                          errorCounterValue
+                          errorCounterValue,
+                          counterIsMax
                         }: CounterPropsType) => {
   return (
     <StyledCounter>
       <Container>
-        <FlexWrapper>
-          <FieldEnter maxValue={maxValue}
+        <FlexWrapper direction={'row'} align={'stretch'} border={'none'}>
+          <EntryField maxValue={maxValue}
                       changeMaxValue={changeMaxValue}
                       minValue={minValue}
                       changeMinValue={changeMinValue}
                       setCounterRange={setCounterRange}
+                      errorCounterValue={errorCounterValue}
           />
-          <FieldOutput counterValue={counterValue}
+          <OutputField counterValue={counterValue}
                        incrementCounterValue={incrementCounterValue}
                        resetCounterValue={resetCounterValue}
                        errorCounterValue={errorCounterValue}
+                       counterIsMax={counterIsMax}
           />
         </FlexWrapper>
       </Container>
