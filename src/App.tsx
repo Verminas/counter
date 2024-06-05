@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./layout/Counter/Counter";
 
@@ -21,16 +21,23 @@ function App() {
       return 0;
     }
   });
-  const [counterValue, setCounterValue] = useState<number | WarningMessage>(minValue);
+  const warningMessage = 'Enter values and press "set"'
+  const [counterValue, setCounterValue] = useState<number | WarningMessage>(warningMessage);
   const [counterIsMax, setCounterIsMax] = useState(false);
   const [errorCounterValue, setErrorCounterValue] = useState<null | ErrorMessage>(null);
   const errorMessage: ErrorMessage = 'Incorrect value';
-  const warningMessage = 'Enter values and press "set"'
+  //
+  // useEffect(() => {
+  //   if (Number(counterValue) >= maxValue ) {
+  //     setCounterIsMax(true);
+  //   }
+  // }, [counterValue])
 
   function incrementCounterValue() {
     console.log(`before +: ${counterValue}`)
+    console.log({counterValue})
     if(!errorCounterValue) {
-      if(typeof counterValue === 'number' &&  counterValue < Number(localStorage.getItem('maxCounterRange'))){
+      if(typeof counterValue === 'number' &&  counterValue < maxValue - 1){
         setCounterIsMax(false);
         setCounterValue(counterValue + 1);
         console.log(`after +: ${counterValue}`)
@@ -70,7 +77,7 @@ function App() {
   }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   function changeMinValue(value: string) {
-    checkMinValueFromLS();
+    // checkMinValueFromLS();
 
     if(Number(value) >= 0) {
       setMinValue(Number(value));
@@ -106,7 +113,6 @@ function App() {
       setErrorCounterValue(null);
     }
   }
-
 
 console.log(errorCounterValue)
 

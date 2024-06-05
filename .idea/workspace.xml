@@ -7,9 +7,6 @@
     <list default="true" id="7b582023-9033-4e0f-9804-07eada948fd6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FieldOutput/FieldOutput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FieldOutput/FieldOutput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Counter/Counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Counter/Counter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +54,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "counter__v1",
-    "last_opened_file_path": "D:/IT-incubator/homework/ReactHTMLCSS/portfolio-start-project",
+    "last_opened_file_path": "D:/IT-incubator/projects/counter/src/layout/Counter",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,6 +69,7 @@
       <recent name="D:\IT-incubator\projects\counter\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IT-incubator\projects\counter\src\layout\Counter" />
       <recent name="D:\IT-incubator\projects\counter\src\layout" />
     </key>
   </component>
@@ -91,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717527223082</updated>
       <workItem from="1717527228331" duration="311000" />
-      <workItem from="1717527544442" duration="16591000" />
+      <workItem from="1717527544442" duration="28238000" />
     </task>
     <servers />
   </component>
