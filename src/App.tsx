@@ -26,12 +26,6 @@ function App() {
   const [counterIsMax, setCounterIsMax] = useState(false);
   const [errorCounterValue, setErrorCounterValue] = useState<null | ErrorMessage>(null);
   const errorMessage: ErrorMessage = 'Incorrect value';
-  //
-  // useEffect(() => {
-  //   if (Number(counterValue) >= maxValue ) {
-  //     setCounterIsMax(true);
-  //   }
-  // }, [counterValue])
 
   function incrementCounterValue() {
     console.log(`before +: ${counterValue}`)
@@ -46,7 +40,6 @@ function App() {
         setCounterIsMax(true);
       }
     }
-    //setCounterValue(counterValue + 1);
   }
   console.log(`out function +: ${counterValue}`)
 
@@ -75,10 +68,8 @@ function App() {
     }
     checkErrorCounterValue()
   }
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  function changeMinValue(value: string) {
-    // checkMinValueFromLS();
 
+  function changeMinValue(value: string) {
     if(Number(value) >= 0) {
       setMinValue(Number(value));
     } else {
@@ -87,23 +78,6 @@ function App() {
       setMinValue(-1);
     }
     checkErrorCounterValue()
-  }
-
-  function checkMinValueFromLS() {
-    checkComparisonMinMaxCounterRange();
-    if(minValue !== Number(localStorage.getItem('minCounterRange'))) {
-      setCounterValue(warningMessage);
-      setErrorCounterValue(errorMessage)
-    } else {
-      setCounterValue(minValue);
-    }
-  }
-
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  function checkComparisonMinMaxCounterRange() {
-    if(minValue > maxValue) {
-      setErrorCounterValue(errorMessage)
-    }
   }
 
   function checkErrorCounterValue() {
