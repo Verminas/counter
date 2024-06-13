@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import './App.css';
+import s from './App.module.css';
 
 function App() {
   const warningMessage = 'Please enter a value range and click "set"';
@@ -10,6 +10,8 @@ function App() {
   const [maxValue, setMaxValue] = useState(5);
   const [isDisabled, setIsDisabled] = useState(false);
   const [error, setError] = useState(false);
+
+  const errorMinValue = minValue < 0 || minValue >= maxValue;
 
 
   useEffect(() => {
@@ -95,16 +97,16 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={s.App}>
       <h1>Counter</h1>
       <div>
-        <input type="number" value={minValue} onChange={updateMinValue}/>
-        <input type="number" value={maxValue} onChange={updateMaxValue}/>
+        <input type="number" value={minValue} onChange={updateMinValue} className={errorMinValue ? s.errorInput : ''}/>
+        <input type="number" value={maxValue} onChange={updateMaxValue} className={error ? s.errorInput : ''}/>
       </div>
       <button onClick={() => setRange(minValue, maxValue)} disabled={error}>Set value range</button>
 
       <div>
-        <h2>{value}</h2>
+        <h2 className={error || value === maxValue ? s.errorCounter : ''}>{value}</h2>
         <button onClick={() => increment(value)} disabled={error || isDisabled}>Increment</button>
         <button onClick={() => reset(value)} disabled={typeof value === 'string'}>Reset</button>
       </div>
@@ -113,3 +115,4 @@ function App() {
 }
 
 export default App;
+

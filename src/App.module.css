@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.errorCounter{
+  color: red;
+  transform: scale(1.2);
+}
+.errorInput{
+  color: red;
+  background-color: rgba(255, 0, 0, 0.5);
+}
