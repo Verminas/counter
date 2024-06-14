@@ -1,48 +1,21 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, useEffect, useLayoutEffect, useState} from 'react';
 import s from './App.module.css';
 
-const getValuesFromLocalStorage = ()=>{
-  const minValue = localStorage.getItem('minValue');
-  const maxValue = localStorage.getItem('maxValue');
-
-  if(minValue && maxValue) {
-   return [(JSON.parse(minValue)),(JSON.parse(maxValue))]
-  }
-  return []
-}
 function App() {
   const warningMessage = 'Please enter a value range and click "set"';
   const errorMessage = 'Invalid value'
 
-  const [value, setValue] = useState<number | string>(warningMessage);
-  const [minValue, setMinValue] = useState(1);
-  const [maxValue, setMaxValue] = useState(5);
+  const [value, setValue] = useState<number | string>(initializationValue);
+  const [minValue, setMinValue] = useState(initializationMinValue);
+  const [maxValue, setMaxValue] = useState(initializationMaxValue);
 
   const [error, setError] = useState(false);
-  const [setDisabled, setSetDisabled] = useState<boolean>(false);
+  const [setDisabled, setSetDisabled] = useState<boolean>(true);
 
   const errorMinValue = minValue < 0 || minValue >= maxValue;
   const errorMaxValue = maxValue < 0 || minValue >= maxValue;
   const isDisabledBtnIncrement = typeof value === 'string' || value >= maxValue;
   const isDisabledBtnReset = typeof value === 'string' || value === minValue;
-
-  useEffect(() => {
-    // debugger
-    const counterValue = localStorage.getItem('counterValue');
-    if (counterValue) {
-      setValue(JSON.parse(counterValue));
-    }
-  }, [])
-
-  useEffect(() => {
-    const minValue = localStorage.getItem('minValue');
-    const maxValue = localStorage.getItem('maxValue');
-
-    if(minValue && maxValue) {
-      setMinValue(JSON.parse(minValue));
-      setMaxValue(JSON.parse(maxValue));
-    }
-  }, []);
 
   useEffect(() => {
     if(typeof value !== 'string') {
@@ -54,23 +27,49 @@ function App() {
     if(minValue < 0 || maxValue < 0 || minValue >= maxValue) {
       setError(true)
       setValue(errorMessage)
-      if(minValue < 0) {
-        setMinValue(-1)
-      }
-      if(maxValue < 0) {
-        setMaxValue(-1)
-      }
     } else {
       setError(false)
-      // !!!!!!!!!!!!!!!!!!!!!!!!!!
-      const [minLSValue, maxLSValue ] = getValuesFromLocalStorage()
-      if(minLSValue !== minValue || maxLSValue !==maxValue){
+      const [minLS, maxLS ] = getMinMaxFromLocalStorage()
+      if(minLS !== minValue || maxLS !==maxValue){
         setValue(warningMessage)
+        setSetDisabled(false)
       }
-      setSetDisabled(false)
     }
   }, [minValue, maxValue]);
 
+  function initializationValue() {
+    const valueLS = localStorage.getItem('counterValue');
+    if (valueLS) {
+      return JSON.parse(valueLS);
+    }
+    return warningMessage;
+  }
+
+  function initializationMinValue() {
+    const minValueLS = localStorage.getItem('minValue');
+    if(minValueLS){
+      return JSON.parse(minValueLS);
+    }
+    return 1;
+  }
+
+  function initializationMaxValue() {
+    const maxValueLS = localStorage.getItem('maxValue');
+    if(maxValueLS){
+      return JSON.parse(maxValueLS);
+    }
+    return 5;
+  }
+
+  function getMinMaxFromLocalStorage() {
+    const min = localStorage.getItem('minValue');
+    const max = localStorage.getItem('maxValue');
+
+    if(min && max) {
+      return [(JSON.parse(min)),(JSON.parse(max))]
+    }
+    return []
+  }
 
   function setRange(min: number, max: number) {
     if(!error) {
@@ -96,11 +95,17 @@ function App() {
   }
 
   function updateMinValue(e: ChangeEvent<HTMLInputElement>) {
-    setMinValue(Number(e.currentTarget.value))
+    const newValue = Number(e.currentTarget.value);
+    if(newValue >= -1) {
+      setMinValue(newValue)
+    }
   }
 
   function updateMaxValue(e: ChangeEvent<HTMLInputElement>) {
-    setMaxValue(Number(e.currentTarget.value))
+    const newValue = Number(e.currentTarget.value);
+    if(newValue >= -1) {
+      setMaxValue(newValue)
+    }
   }
 
   return (
