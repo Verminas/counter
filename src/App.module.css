@@ -5,6 +5,13 @@
 .errorCounter{
   color: red;
   transform: scale(1.2);
+  width: max-content;
+  margin: 5px auto;
+}
+.counter{
+  width: max-content;
+  margin: 5px auto;
+  color: black;
 }
 .errorInput{
   color: red;
