@@ -22,7 +22,7 @@ function App() {
   const isDisabledBtnSet = error || setDisabled;
   const isDisabledBtnIncrement = typeof value === 'string' || value >= maxValue;
   const isDisabledBtnReset = typeof value === 'string' || value === minValue;
-  const classNameForCurrentValue = error || value === maxValue ? s.errorCounter : s.counter;
+  const classNameForCurrentValue = error || value === maxValue;
 
   useEffect(() => {
     if(typeof value !== 'string') {
@@ -130,7 +130,7 @@ function App() {
         </div>
         <div>
           <WrapperBorder>
-            <CurrentValue value={value} minValue={minValue} maxValue={maxValue} className={classNameForCurrentValue}/>
+            <CurrentValue value={value} minValue={minValue} maxValue={maxValue} error={classNameForCurrentValue}/>
           </WrapperBorder>
           <WrapperBorder>
             <Button onClick={() => increment(value)} disabled={isDisabledBtnIncrement} title={'Increment'}/>

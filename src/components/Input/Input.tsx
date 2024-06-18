@@ -22,4 +22,8 @@ const Wrapper = styled.div`
     display: flex;
     gap: 15px;
     word-break: keep-all;
+    
+    input{
+        max-width: 100px;
+    }
 `

@@ -2,24 +2,36 @@ import s from "../../App.module.css";
 import React from "react";
 import styled from "styled-components";
 import {ProgressBar} from "../../components/ProgressBar/ProgressBar";
+import {theme} from "../../styles/theme";
 
 type Props = {
-  className?: string
+  error: boolean
   value: number | string
   maxValue: number
   minValue: number
 };
-export const CurrentValue = ({value, maxValue,className, minValue}: Props) => {
+export const CurrentValue = ({value, maxValue,error, minValue}: Props) => {
   const percent = typeof value === 'number' ? ((value - minValue) / (maxValue - minValue)) * 100 : false;
   console.log(percent)
   return (
     <Wrapper>
-      <h2 className={className}>{value}</h2>
+      <Title error={error}>{value}</Title>
       <ProgressBar percent={percent}/>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-    min-height: 60px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
+const Title = styled.h2<{error: boolean}>`
+    min-height: 45px;
+    color: ${props => props.error ? `${theme.errors.secondary}` : `${theme.colors.primary}`};
+    transform: ${props => props.error ? `scale(1.2)` : `scale(1.0)`};
+    font-size: 18px;
+    margin: 0;
 `

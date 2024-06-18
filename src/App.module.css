@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
   width: 100vw;
@@ -10,18 +13,7 @@
   }
 }
 
-.errorCounter{
-  color: red;
-  transform: scale(1.2);
-  width: max-content;
-  margin: 5px auto;
-}
-.counter{
-  width: max-content;
-  margin: 5px auto;
-  color: black;
-  font-size: 16px;
-}
+
 .errorInput{
   color: red;
   background-color: rgba(255, 0, 0, 0.5);

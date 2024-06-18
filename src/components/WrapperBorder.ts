@@ -9,8 +9,7 @@ export const WrapperBorder = styled.div<WrapperBorderPropsType>`
     gap: 5px;
     align-items: center;
     justify-content: center;
-    max-width: fit-content;
-    min-width: 280px;
+    width: 310px;
     flex-direction: ${props => props.direction || 'row'};
     border: 2px solid #7cf0ff;
     border-radius: 10px;

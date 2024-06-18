@@ -19,8 +19,10 @@ const StyledButton = styled.button`
     min-width: 70px;
     color: black;
     font-weight: bold;
+    cursor: pointer;
     
     &:disabled{
         opacity: 0.5;
+        cursor: not-allowed;
     }
 `

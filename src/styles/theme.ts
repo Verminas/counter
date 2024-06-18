@@ -7,11 +7,12 @@ export const theme = {
     primary: true,
     secondary: true,
   },
-  fonts: {
-    primary: true,
+  colors: {
+    primary: '#151111',
     secondary: true,
   },
   errors: {
-    primary: false,
+    primary: 'rgba(255,0,0,0.4)',
+    secondary: 'rgb(220,20,60)',
   }
 }
