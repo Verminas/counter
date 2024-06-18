@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {BorderWrapper} from "../BorderWrapper";
+import {theme} from "../../styles/theme";
 
 type Props = {
   value: number
@@ -15,7 +16,8 @@ export const CounterValue = ({value, error}: Props) => {
 
 const StyledH2 = styled.h2<{error: boolean}>`
     display: inline-block;
-    margin: 5px;
-    color: ${props => props.error ? 'red' : 'black'};
+    margin: 7px;
+    color: ${props => props.error ? `${theme.error.secondary}` : `${theme.color.primary}`};
     transform: ${props => props.error ? 'scale(1.2)' : 'scale(1.0)'};
+    font-size: 32px;
 `

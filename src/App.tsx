@@ -1,10 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import './App.css';
-import {InputItem} from "./components/InputItem/InputItem";
-import {Button} from "./components/Button/Button";
-import {CounterValue} from "./components/CounterValue/CounterValue";
-import styled from "styled-components";
-import {BorderWrapper} from "./components/BorderWrapper";
+import {Counter} from "./layout/Counter/Counter";
 
 function App() {
   const [minValue, setMinValue] = useState<number>(setInitialMinValue);
@@ -66,48 +62,23 @@ function App() {
     setValue(minValue)
   }
 
-  const setInEditModeBtnDisabled = minValue < 0 || minValue >= maxValue;
-  const incrementBtnDisabled = value >= maxValue;
-  const resetBtnDisabled = value === minValue;
-  const inputItemMinValueError = minValue < 0 || minValue >= maxValue;
-  const inputItemMaxValueError = maxValue < 0 || minValue >= maxValue;
-  const valueIsMaxValue = value >= maxValue;
-
   return (
     <div className="App">
-      <WrapperContent>
-        {editMode
-          ? (
-            <BorderWrapper>
-              <InputItem id={'maxValue'} value={maxValue} onChange={changeMaxValue} labelTitle={'Max value: '}
-                         error={inputItemMaxValueError}/>
-              <InputItem id={'startValue'} value={minValue} onChange={changeMinValue} labelTitle={'Start value: '}
-                         error={inputItemMinValueError}/>
-            </BorderWrapper>
-          )
-          : (
-            <CounterValue value={value} error={valueIsMaxValue}/>
-          )}
-        {editMode ? <BorderWrapper>
-          <Button disabled={setInEditModeBtnDisabled} onClick={saveSettings} title={'Set'}/>
-        </BorderWrapper> : <BorderWrapper>
-          <Button onClick={incrementValue} disabled={incrementBtnDisabled} title={'Inc'}/>
-          <Button onClick={resetValue} disabled={resetBtnDisabled} title={'Reset'}/>
-          <Button onClick={changeEditMode} title={'Set'}/>
-        </BorderWrapper>}
-      </WrapperContent>
+     <Counter value={value}
+              maxValue={maxValue}
+              minValue={minValue}
+              editMode={editMode}
+              changeMinValue={changeMinValue}
+              changeMaxValue={changeMaxValue}
+              changeEditMode={changeEditMode}
+              incrementValue={incrementValue}
+              resetValue={resetValue}
+              saveSettings={saveSettings}
+
+     />
     </div>
   );
 }
 
 export default App;
 
-const WrapperContent = styled.div`
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-`
