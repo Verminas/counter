@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7b582023-9033-4e0f-9804-07eada948fd6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/CurrentValue/CurrentValue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/CurrentValue/CurrentValue.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -55,7 +58,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "counter__v2",
-    "last_opened_file_path": "D:/IT-incubator/projects/exproj01",
+    "last_opened_file_path": "D:/IT-incubator/projects/counter",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,7 +86,9 @@
       <workItem from="1717527228331" duration="311000" />
       <workItem from="1717527544442" duration="193000" />
       <workItem from="1718283296279" duration="611000" />
-      <workItem from="1718355540539" duration="13300000" />
+      <workItem from="1718355540539" duration="13363000" />
+      <workItem from="1718377056077" duration="127000" />
+      <workItem from="1718710960731" duration="3501000" />
     </task>
     <servers />
   </component>

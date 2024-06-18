@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+
+  h1{
+    margin: 0;
+    padding: 15px;
+  }
 }
 
 .errorCounter{
@@ -12,6 +20,7 @@
   width: max-content;
   margin: 5px auto;
   color: black;
+  font-size: 16px;
 }
 .errorInput{
   color: red;
