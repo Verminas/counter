@@ -121,8 +121,8 @@ function App() {
       <WrapperContent>
         <div>
           <WrapperBorder direction={'column'}>
-            <Input id={'maxValue'} title={'max value: '} value={maxValue} onChange={updateMaxValue} className={errorMaxValue ? s.errorInput : ''}/>
-            <Input id={'startValue'} title={'start value: '} value={minValue} onChange={updateMinValue} className={errorMinValue ? s.errorInput : ''}/>
+            <Input id={'maxValue'} title={'max value: '} value={maxValue} onChange={updateMaxValue} error={errorMaxValue}/>
+            <Input id={'startValue'} title={'start value: '} value={minValue} onChange={updateMinValue} error={errorMinValue}/>
           </WrapperBorder>
           <WrapperBorder>
             <Button onClick={() => setRange(minValue, maxValue)} disabled={isDisabledBtnSet} title={'Set'}/>

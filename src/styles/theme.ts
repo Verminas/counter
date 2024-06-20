@@ -4,7 +4,7 @@ export const theme = {
     secondary: false,
   },
   borders: {
-    primary: true,
+    primary: '#151111',
     secondary: true,
   },
   colors: {
