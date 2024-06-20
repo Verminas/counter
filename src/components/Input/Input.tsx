@@ -23,6 +23,7 @@ const Wrapper = styled.div`
     display: flex;
     gap: 15px;
     white-space: wrap;
+    align-items: center;
 `
 
 const StyledInput = styled.input<{error: boolean}>`

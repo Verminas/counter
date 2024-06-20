@@ -16,7 +16,7 @@ export const CurrentValue = ({value, maxValue,error, minValue}: Props) => {
   return (
     <Wrapper>
       <Title error={error}>{value}</Title>
-      <ProgressBar percent={percent}/>
+      <ProgressBar percent={percent <= 100 ? percent : 100}/>
     </Wrapper>
   );
 };
